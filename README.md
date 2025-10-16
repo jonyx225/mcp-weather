@@ -40,13 +40,26 @@ cd mcp-weather
 uv sync
 ```
 
-### Step 2: Run the client
+### Step 2: Hugging Face Login (One-time, for Llama3)
 
 ```bash
-uv run client-llama3.py ../mcp-server-weather/server.py
+# Get FREE access: huggingface.co/meta-llama/Llama-3.1-8B-Instruct
+huggingface-cli login  # Paste your token
 ```
 
-## Example
+## 🎯 Run Examples
+
+### Basic Usage
+
+```bash
+# Terminal 1: Start Weather Server
+uv run weather_server.py
+
+# Terminal 2: Start Llama3 Client
+uv run client-llama3.py ../mcp-server-weather/weather_server.py
+```
+
+#### Chat:
 
 ```bash
 🦙 LOCAL Llama3 MCP Client Started!
@@ -69,4 +82,16 @@ Forecast: Partly cloudy with 20% chance of rain
 Tuesday:
 Temperature: 72°F
 ...
+```
+
+### Smart Queries (Llama3 Auto-Uses Tools)
+
+```bash
+Query: Should I cancel my flight from Texas?
+[Called get_alerts: {'state': 'TX'} → Tornado Warning in Dallas]
+**Yes, cancel!** Tornado warning active in Dallas until 8PM.
+
+Query: What's the weather like at 40.7128,-74.0060?
+[Called get_forecast: {'latitude': 40.7128, 'longitude': -74.0060} → NYC Forecast]
+**NYC 5-Day:** Sunny 72°F today, rain tomorrow...
 ```
