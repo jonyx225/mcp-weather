@@ -33,7 +33,7 @@ _Local AI Weather Chat with Real-Time NWS Data_
 
 ```bash
 # Clone this repo
-git clone <your-repo>
+git clone git@github.com:jonyx225/mcp-weather.git
 cd mcp-weather
 
 # Install dependencies (30s)
