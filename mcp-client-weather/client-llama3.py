@@ -35,7 +35,6 @@ class MCPClient:
         print("✅ Llama3 loaded locally!")
 
     async def connect_to_server(self, server_script_path: str):
-        # ← SAME AS BEFORE
         is_python = server_script_path.endswith('.py')
         is_js = server_script_path.endswith('.js')
         if not (is_python or is_js):
